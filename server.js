@@ -18,12 +18,12 @@ app.get("/", (req, res) => {
 app.post("/submit", (req, res) => {
     const { name, email, phone, country } = req.body;
 
-    
+
     if (!name || !email || !phone || !country) {
         return res.status(400).json({ message: "All fields are required" });
     }
 
-   
+
     const formData = { name, email, phone, country, timestamp: new Date() };
 
     fs.readFile("submissions.json", (err, data) => {
@@ -37,6 +37,7 @@ app.post("/submit", (req, res) => {
             if (err) {
                 return res.status(500).json({ message: "Error saving data" });
             }
+            console.log("New Submission:", req.body);
             res.json({ message: "Form submitted successfully!" });
         });
     });
