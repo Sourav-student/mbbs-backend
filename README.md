@@ -12,4 +12,3 @@
 3. Start the server:
    ```sh
    node server.js
-```
