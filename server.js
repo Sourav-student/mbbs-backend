@@ -9,6 +9,10 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+    res.send("Backend is running!");
+});
+
 app.post("/submit", (req, res) => {
     const { name, email, phone, country } = req.body;
 
